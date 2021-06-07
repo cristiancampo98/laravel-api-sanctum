@@ -20,10 +20,11 @@ class CanLogin
     {
         $data = [];
         $flag = false;
-        if ($request->has('email')) {
-            $user = User::where('email',$request->email)->first();
-        } else {
+
+        if (Auth::check()) {
             $user = Auth::user();
+        } else {
+            $user = User::where('email',$request->email)->first();
         }
 
         if ($user->admin) {

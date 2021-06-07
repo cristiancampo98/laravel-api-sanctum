@@ -8,5 +8,5 @@ abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
 
-    public $baseUrl = '/api/v1/';
+    public $baseUrl = '/api/';
 }

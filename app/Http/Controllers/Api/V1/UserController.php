@@ -44,7 +44,7 @@ class UserController extends ResponseController
             $user->password = Hash::make($user->password);
             $user->save();
 
-            return $this->sendResponse($user, 'Response success');
+            return $this->sendResponse(new UserResource($user), 'Response success');
         }
         return $this->sendError('Error', 'Inauthorized',501);
         
