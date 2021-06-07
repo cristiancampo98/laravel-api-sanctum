@@ -27,6 +27,12 @@ class CanLogin
             $user = User::where('email',$request->email)->first();
         }
 
+        if (empty($user)) {
+            return response()->json([
+                'message' => 'NOT FOUND',
+                'data' => $user
+            ],200);
+        }
         if ($user->admin) {
             return $next($request);
         }

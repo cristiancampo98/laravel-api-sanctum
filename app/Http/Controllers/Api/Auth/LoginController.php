@@ -33,7 +33,7 @@ class LoginController extends ResponseController
             }
 
             $data = [
-                'user' => Auth::user(),
+                'user' => Auth::user()->only(['email']),
                 'Alerta' => Auth::user()->user_alert,
                 'token' => $token
             ];

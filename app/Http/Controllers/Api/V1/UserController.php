@@ -128,14 +128,14 @@ class UserController extends ResponseController
             $type_alert = 'rojo';
             Auth::user()->user_alert = $type_alert;
             Auth::user()->save();
-            return $this->sendResponse($type_alert, 'Response success');
+            return $this->sendResponse($type_alert, 'Usted tiene sintomas no puede entrar a la sede, por favor visite su medico');
         } 
 
         if ($request->get('contacto')) {
             $type_alert = 'amarillo';
             Auth::user()->user_alert = $type_alert;
             Auth::user()->save();
-            return $this->sendResponse($type_alert, 'Response success');
+            return $this->sendResponse($type_alert, 'Estas suspendido. Comunicarse con el administrador');
         } 
 
         return $this->sendResponse($type_alert, 'Response success');

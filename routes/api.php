@@ -27,7 +27,7 @@ Route::post('login', [LoginController::class, 'authenticate'])->middleware(CanLo
 Route::post('logout', [LoginController::class, 'logout'])->middleware('auth:sanctum');
 Route::post('register', [RegisterController::class, 'register']);
 
-Route::group( ['middleware' => ['auth:sanctum',CanLogin::class]], function() {
+Route::group( ['middleware' => ['auth:sanctum']], function() {
     Route::get('profile', [ProfileController::class, 'profile']);
     Route::post('change-password', [ProfileController::class, 'changePassword']);
     Route::put('suspend/{user}', [UserController::class, 'suspend']);

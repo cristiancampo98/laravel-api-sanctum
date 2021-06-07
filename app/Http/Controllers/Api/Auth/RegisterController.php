@@ -32,7 +32,7 @@ class RegisterController extends ResponseController
         $user->password = Hash::make($request->get('password'));
         $user->save();
 
-        return $this->sendResponse($user, 'Registered successfully');
+        return $this->sendResponse($user->only(['email','admin']), 'Registered successfully');
 
     }
 }
